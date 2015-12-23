@@ -19,6 +19,6 @@
                 <param name="android-package" value="SystemSounds"/>
             </feature>
         </config-file>
-        <source-file src="src/android/SystemSounds.java" target-dir="SystemSounds"/>
+        <source-file src="src/android/SystemSounds.java" target-dir="src"/>
     </platform>
 </plugin>

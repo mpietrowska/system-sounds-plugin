@@ -3,6 +3,7 @@ import org.apache.cordova.CallbackContext;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class SystemSounds extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        Log.d("SS", "executing");
+
         if (GET_SYSTEM_NOTIFICATION_SOUNDS.equals(action)) {
 
             Map<String, String> soundList = new HashMap();
@@ -32,12 +33,12 @@ public class SystemSounds extends CordovaPlugin {
             while (cursor.moveToNext()) {
                 String notificationTitle = cursor.getString(RingtoneManager.TITLE_COLUMN_INDEX);
                 String notificationUri = cursor.getString(RingtoneManager.URI_COLUMN_INDEX);
-                Log.d("SS", notificationTitle);
+
                 soundList.put(notificationTitle, notificationUri);
             }
 
             String json = new JSONObject(soundList).toString();
-            Log.d("SS", json);
+            
             callbackContext.success(json);
             return true;
         }

@@ -33,12 +33,13 @@ public class SystemSounds extends CordovaPlugin {
             while (cursor.moveToNext()) {
                 String notificationTitle = cursor.getString(RingtoneManager.TITLE_COLUMN_INDEX);
                 String notificationUri = cursor.getString(RingtoneManager.URI_COLUMN_INDEX);
+                String id = cursor.getString(RingtoneManager.ID_COLUMN_INDEX);
 
-                soundList.put(notificationTitle, notificationUri);
+                soundList.put(notificationTitle, notificationUri + "/" + id);
             }
 
             String json = new JSONObject(soundList).toString();
-            
+
             callbackContext.success(json);
             return true;
         }

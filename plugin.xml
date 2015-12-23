@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.example.systemsounds"
+        version="0.1.0">
+    <name>System sounds</name>
+    <description>Android system sounds</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,Android system sounds</keywords>
+
+    <js-module src="www/systemsounds.js" name="SystemSounds">
+        <clobbers target="systemsounds" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SystemSounds" >
+                <param name="android-package" value="SystemSounds"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/SystemSounds.java"/>
+    </platform>
+</plugin>

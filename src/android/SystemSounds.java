@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import android.media.RingtoneManager;
 import android.database.Cursor;
@@ -22,7 +23,7 @@ public class SystemSounds extends CordovaPlugin {
         Log.d("SS", "executing");
         if (GET_SYSTEM_NOTIFICATION_SOUNDS.equals(action)) {
 
-            Map<String, String> soundList = new HashMap<>();
+            Map<String, String> soundList = new HashMap();
 
             RingtoneManager manager = new RingtoneManager(cordova.getActivity().getApplicationContext());
             manager.setType(RingtoneManager.TYPE_NOTIFICATION);

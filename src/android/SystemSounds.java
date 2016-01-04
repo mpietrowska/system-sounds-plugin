@@ -17,6 +17,7 @@ import android.content.Context;
 public class SystemSounds extends CordovaPlugin {
 
     public static final String GET_SYSTEM_NOTIFICATION_SOUNDS = "getSystemNotificationSounds";
+    public static final String PLAY_SOUND = "playSound";
 
 
     @Override
@@ -42,7 +43,18 @@ public class SystemSounds extends CordovaPlugin {
 
             callbackContext.success(json);
             return true;
+
+        } else if (PLAY_SOUND.equals(action)) {
+
+            String uriString = args.getString(0);
+
+            RingtoneManager manager = new RingtoneManager(cordova.getActivity().getApplicationContext());
+            manager.getRingtone(this, Uri.parse(uriString)).play();
+
+            callbackContext.success();
+            return true;
         }
+
         callbackContext.error("Invalid action");
         return false;
 

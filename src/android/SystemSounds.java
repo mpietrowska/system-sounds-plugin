@@ -49,8 +49,7 @@ public class SystemSounds extends CordovaPlugin {
 
             String uriString = args.getString(0);
 
-            RingtoneManager manager = new RingtoneManager(cordova.getActivity().getApplicationContext());
-            manager.getRingtone(this, Uri.parse(uriString)).play();
+            RingtoneManager.getRingtone(this, Uri.parse(uriString)).play();
 
             callbackContext.success();
             return true;

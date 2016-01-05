@@ -6,6 +6,9 @@ var systemsounds = {
     },
     playSound : function(uriString, successCallback, errorCallback){
         cordova.exec(successCallback, errorCallback, 'SystemSounds', 'playSound', [uriString])
+    },
+    getDefaultNotificationSound : function(successCallback, errorCallback){
+        cordova.exec(successCallback, errorCallback, 'SystemSounds', 'getDefaultNotificationSound', [])
     }
 }
 

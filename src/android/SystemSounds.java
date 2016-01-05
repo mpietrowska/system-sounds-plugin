@@ -58,8 +58,8 @@ public class SystemSounds extends CordovaPlugin {
         } else if (GET_DEFAULT_NOTIFICATION_SOUND.equals(action)) {
 
             String uriString = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString();
-            
-            callbackContext.success();
+
+            callbackContext.success(uriString);
             return true;
         }
 
